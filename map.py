@@ -14,7 +14,7 @@ class Map(Turtle):
 
     def update_map(self):
         self.goto(self.x, self.y)
-        self.write(self.state, align="center", font=("Courier", 12, "normal"))
+        self.write(self.state, align="center", font=("Courier", 8, "normal"))
 
     def add_point(self):
         self.score += 1
