@@ -17,8 +17,10 @@ current_score = 0
 title_text = "Guess the State"
 
 while current_score < 51:
-    answer_state = screen.textinput(title=title_text, prompt="What's another state's name?")
-    guessed_answer = answer_state.title()
+    guessed_answer = screen.textinput(title=title_text, prompt="What's another state's name?").title()
+    if guessed_answer == "Exit":
+        break
+
     if guessed_answer in all_states:
         if correct_guesses.count(guessed_answer) == 0:
             correct_guesses.append(guessed_answer)
@@ -29,5 +31,3 @@ while current_score < 51:
             game.update_map()
             game.add_point()
             title_text = f"{game.score}/50 States Correct"
-
-screen.exitonclick()
