@@ -19,12 +19,9 @@ title_text = "Guess the State"
 while current_score < 51:
     guessed_answer = screen.textinput(title=title_text, prompt="What's another state's name?").title()
     if guessed_answer == "Exit":
-        missing_states = []
-        for state in all_states:
-            if state not in guesses_states:
-                missing_states.append(state)
-            new_data = pandas.DataFrame(missing_states)
-            new_data.to_csv("states_to_learn.csv")
+        missing_states = [state for state in all_states if state not in guesses_states]
+        new_data = pandas.DataFrame(missing_states)
+        new_data.to_csv("states_to_learn.csv")
         break
 
     if guessed_answer in all_states:
